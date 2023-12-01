@@ -1,0 +1,19 @@
+0    LOAD_IMM R2 1      # 
+1    LOAD_IMM R3 1      # starting value
+2    LOAD_IMM R4 0      # Pointer to C & iterator
+3    LOAD_IMM R5 3      # number of iteration
+4    ADD R5 R5          # Double R5
+5    NOP                # NOP <-- label_back     # Loop start here
+6    ADD R3, R2         # add 1 to r3
+7    STORE R3 R4        # store to C(i)
+8    NOP                # NOP
+9    NOP                # NOP
+10   ADD R4 R2          # update pointer for C
+11   MOV R6 R4          # make a copy of iterator to R6
+12   SUB R6 R5          # compare R6 to R5 by a subtraction
+13   BRN_Z label_end    # if R6==R5, loop should end
+14   NOP                # NOP
+15   NOP                # NOP
+16   BRN label_back     # else, loop back
+17   NOP                # NOP <-- label_end
+18   NOP                # NOP
